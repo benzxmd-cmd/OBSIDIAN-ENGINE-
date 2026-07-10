@@ -14,10 +14,33 @@ jobs:
         with:
           flutter-version: '3.24.0'
       
-      - run: flutter pub get
-      - run: flutter build apk --release
+      - name: Setup project
+        run: |
+          # Backup existing files
+          mkdir -p ../backup
+          cp -r lib ../backup/ 2>/dev/null || true
+          cp -r assets ../backup/ 2>/dev/null || true
+          cp pubspec.yaml ../backup/ 2>/dev/null || true
+          
+          # Create new Flutter project
+          cd ..
+          flutter create --org com.obsidian --project-name obsidian_engine obsidian_new
+          
+          # Copy back files
+          cp -r obsidian_engine/lib/* obsidian_engine/lib/ 2>/dev/null || true
+          cp ../backup/lib/* obsidian_engine/lib/ 2>/dev/null || true
+          cp -r ../backup/assets obsidian_engine/ 2>/dev/null || true
+          cp ../backup/pubspec.yaml obsidian_engine/ 2>/dev/null || true
+          
+          cd obsidian_engine
+          flutter pub get
+      
+      - name: Build APK
+        run: |
+          cd ../obsidian_new
+          flutter build apk --release
       
       - uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: ../obsidian_new/build/app/outputs/flutter-apk/app-release.apk
