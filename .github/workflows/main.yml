@@ -14,15 +14,6 @@ jobs:
         with:
           flutter-version: '3.24.0'
       
-      - name: Buat projek Flutter dan salin file
-        run: |
-          flutter create --org com.obsidian --project-name obsidian_engine .
-          mkdir -p lib
-          cp -f lib/main.dart lib/main.dart.bak 2>/dev/null || true
-          rm -rf lib/*
-          cp -r ../OBSIDIAN-ENGINE-/lib/* lib/ 2>/dev/null || true
-          cp -r ../OBSIDIAN-ENGINE-/assets assets/ 2>/dev/null || true
-      
       - run: flutter pub get
       - run: flutter build apk --release
       
