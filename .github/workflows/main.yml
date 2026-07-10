@@ -9,11 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
+      
+      - name: Create Flutter project
+        run: |
+          flutter create --org com.obsidian --project-name obsidian_engine .
+          rm -rf lib/*
+          cp -r ../OBSIDIAN-ENGINE-/lib/* lib/ 2>/dev/null || true
+      
       - run: flutter pub get
       - run: flutter build apk --release
+      
       - uses: actions/upload-artifact@v4
         with:
           name: app-release
