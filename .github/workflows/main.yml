@@ -27,14 +27,22 @@ jobs:
           flutter create --org com.obsidian --project-name obsidian_engine obsidian_new
           
           # Copy back files
-          cp -r obsidian_engine/lib/* obsidian_engine/lib/ 2>/dev/null || true
-          cp ../backup/lib/* obsidian_engine/lib/ 2>/dev/null || true
-          cp -r ../backup/assets obsidian_engine/ 2>/dev/null || true
-          cp ../backup/pubspec.yaml obsidian_engine/ 2>/dev/null || true
+          cp -r ../backup/lib/* obsidian_new/lib/ 2>/dev/null || true
+          cp -r ../backup/assets obsidian_new/ 2>/dev/null || true
+          cp ../backup/pubspec.yaml obsidian_new/ 2>/dev/null || true
           
-          cd obsidian_engine
+          cd obsidian_new
           flutter pub get
       
+      - name: Build APK
+        run: |
+          cd ../obsidian_new
+          flutter build apk --release
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: ../obsidian_new/build/app/outputs/flutter-apk/app-release.apk      
       - name: Build APK
         run: |
           cd ../obsidian_new
