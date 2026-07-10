@@ -1,0 +1,93 @@
+name: obsidian_engine
+description: "Sikma"
+publish_to: 'none'
+version: 4.1.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0
+  image_picker: ^1.0.4
+  url_launcher: ^6.2.6
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.2.2
+  device_info_plus: ^10.1.0
+  carousel_slider: ^4.2.1
+  youtube_player_flutter: ^9.1.3
+  web_socket_channel: ^2.4.0
+  network_info_plus: ^5.0.1
+  permission_handler: ^11.3.0
+  video_player: ^2.8.6
+  webview_flutter: ^4.7.0
+  shimmer: ^3.0.0
+  socket_io_client: ^2.0.3
+  audioplayers: ^6.0.0
+  intl: ^0.19.0
+  font_awesome_flutter: ^10.7.0
+  cached_network_image: ^3.3.1
+  chewie: ^1.8.5
+  provider: ^6.1.2
+  share_plus: ^12.0.1
+  path_provider: ^2.1.1
+  cross_file: ^0.3.4
+  file_selector: ^1.0.3
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.jpg"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/title.png
+    - assets/images/bokep.png
+    - assets/images/wa.png
+    - assets/images/tele.png
+    - assets/images/home.png
+    - assets/images/ddos.png
+    - assets/images/tools.png
+    - assets/images/logo.png
+    - assets/images/logo.jpg
+    - assets/images/abc.jpg
+    - assets/videos/splash.mp4
+    - assets/videos/load.mp4
+    - assets/videos/login.mp4
+    - assets/videos/banner.mp4
+    - assets/videos/bnb.mp4
+    - assets/videos/heder.mp4
+    - assets/images/news1.jpg
+    - assets/images/news2.jpg
+    - assets/images/news3.jpg
+    - assets/images/news4.jpg
+    - assets/images/news5.jpg
+    - assets/videos/animek.mp4
+    - assets/icon/icon.jpg
+    - assets/videos/landing.mp4
+    - assets/images/tipep.jpg
+  fonts:
+    - family: Rajdhani
+      fonts:
+        - asset: fonts/Rajdhani-Regular.ttf
+    - family: Aktura
+      fonts:
+        - asset: fonts/Aktura-Regular.ttf
+    - family: TNanti-Demo
+      fonts:
+        - asset: fonts/TNanti-Demo.ttf
+    - family: Orbitron
+      fonts:
+        - asset: fonts/Orbitron-Regular.ttf
+    - family: ShareTechMono
+      fonts:
+        - asset: fonts/ShareTechMono-Regular.ttf
